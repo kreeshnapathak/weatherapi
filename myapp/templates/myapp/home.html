@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'myapp/mystyle.css' %}">
+    <title>Home</title>
+</head>
+<body class="button-cold">
+    <div class='wrapper'>
+
+        <search>
+          <form method='POST' >
+              {% csrf_token %}
+            <input class='searchbar transparent' name='ct' id='search' type='text' placeholder='enter city name' />
+            <input class='button transparent' id='button' type="submit" value='GO' />
+          </form>
+        </search>
+      
+        <div class='panel'>
+          <h2 class='city' id='city'>{{name}}</h2>
+          <div class='weather' id='weather'>
+            <div class='group secondary'>
+              <h3 id='dt'></h3>
+              <h3 id='description'>{{description}}</h3>
+            </div>
+            <div class='group secondary'>
+              <h3 id='wind'></h3>
+              <h3 id='humidity'>Humidity: {{humidity}}</h3>
+            </div>
+            <div class='temperature' id='temperature'>
+              <h1 class='temp' id='temp'><i id='condition'>{{temperature}}</i> <span id='num'></span><a class='fahrenheit active' id='fahrenheit' href="#">&deg;C</a>
+            </div>
+            <div class='forecast' id='forecast'></div>
+          </div>
+        </div>
+</body>
+</html>
+<script src="{% static 'myapp/myjs.js' %}"></script>
